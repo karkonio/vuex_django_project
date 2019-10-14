@@ -8,8 +8,15 @@ const API_URL = 'http://127.0.0.1:8000/api'
 
 export default new Vuex.Store({
   state: {
+    token: localStorage.getItem('token') || ''
   },
   mutations: {
+    error (state, error) {
+      state.error = error
+    },
+    clean_error (state) {
+      state.error = ''
+    },
     login_success (state, token) {
       state.token = token
     },
