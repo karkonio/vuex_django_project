@@ -21,7 +21,6 @@
       <input class="form-control mr-sm-2" type='text' v-model="username"/>
       <input class="form-control mr-sm-2" type='password' v-model="password"/>
       <button type="button" class="btn btn-success" data-toggle="button" @click="login({username, password})">Log In</button>
-      {{ user }}
     </div>
   </nav>
 </template>
@@ -58,7 +57,7 @@
     color: #ffffff;
     font-family: "Comic Sans MS", cursive, sans-serif;
   }
-  img {
+  #app > nav > a > a > img {
     border-radius: 50%;
     width: 61px;
     height: 60px;

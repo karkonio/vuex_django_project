@@ -8,7 +8,9 @@ const API_URL = 'http://127.0.0.1:8000/api'
 
 export default new Vuex.Store({
   state: {
-    token: localStorage.getItem('token') || ''
+    posts: [],
+    token: localStorage.getItem('token') || '',
+    error: ''
   },
   mutations: {
     error (state, error) {
@@ -22,6 +24,9 @@ export default new Vuex.Store({
     },
     logout (state) {
       state.token = ''
+    },
+    postsSet (state, posts) {
+      state.posts = posts
     }
   },
   actions: {
@@ -36,6 +41,10 @@ export default new Vuex.Store({
       context.commit('logout')
       localStorage.removeItem('token')
       delete axios.defaults.headers.common['Authorization']
+    },
+    async getPosts (context) {
+      let response = await axios.get(`${API_URL}/posts/`)
+      context.commit('postsSet', response.data)
     }
   }
 })
