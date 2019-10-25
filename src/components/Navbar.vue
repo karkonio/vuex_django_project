@@ -50,6 +50,9 @@
 
   .navbar {
     background-color: #b192dd;
+    opacity: .80;
+    -khtml-opacity: .80;
+    -moz-opacity: .80;
     column-width: 300px;
   }
   .navbar a {

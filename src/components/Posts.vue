@@ -108,7 +108,7 @@ export default {
   .flip-card-back p {
     font-family: "Comic Sans MS", boold, sans-serif;
     color: #32135E;
-    text-align: left;
+    text-align: justify;
     text-indent: 16px;
     word-break: break-word;
     font-style: italic;
