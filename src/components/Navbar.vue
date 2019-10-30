@@ -9,10 +9,8 @@
         <li>
         <span>{{ username }} </span>
           <ul>
-            
-            <li><a href="#">My Profile</a></li>
+            <li><a href="#" @click='getProfile(current_user_id)'>My Profile</a></li>
             <li><a href="#" @click="logout">Log Out</a></li>
-
           </ul>
         </li>
       </ul>
@@ -33,14 +31,14 @@
     data () {
       return {
         username: 'username',
-        password: 'password'
+        password: 'password',
       }
     },
     computed: {
-      ...mapState(['token', 'error'])
+      ...mapState(['token', 'error', 'current_user_id'])
     },
     methods: {
-      ...mapActions(['login', 'logout'])
+      ...mapActions(['login', 'logout', 'getProfile']),
     }
   }
 </script>
