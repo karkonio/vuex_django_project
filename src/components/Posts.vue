@@ -1,5 +1,4 @@
 <template>
-
   <div class="flex-container">
 
     <ul id="v-for-object">
@@ -7,15 +6,17 @@
 
         <div class="flip-card">
           <div class="flip-card-inner">
+
             <div class="flip-card-front">
               <img v-bind:src="post.image" alt="post">
             </div>
 
             <div class="flip-card-back">
-              <h1>@{{ post.profile }}</h1>
+              <button @click='getProfile(post.profile_id)'>@{{ post.profile }}</button>
               <p>{{ post.description }}</p>
               <h6>{{ post.created }}</h6>
             </div>
+
           </div>
         </div>
 
@@ -26,7 +27,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'Posts',
@@ -36,6 +37,9 @@ export default {
   computed: mapState(['posts']),
   created: function () {
     this.$store.dispatch('getPosts')
+  },
+  methods: {
+    ...mapActions(['getProfile']),
   }
 }
 </script>
@@ -93,17 +97,21 @@ export default {
     color: white;
     transform: rotateY(180deg);
   }
-  .flip-card-back h1 {
-    font-family: "Comic Sans MS", bold, sans-serif;
+  .flip-card-back button {
+    background-color: #b192dd;
+    border: none;
+    padding: 15px 32px;
+    font-size: 30px;
     text-align: left;
-    text-indent: 16px;
-    padding-top: 3%;
+    width: 100%;
+    -webkit-text-fill-color: antiquewhite;
   }
   .flip-card-back h6 {
     font-style: italic;
     color: #bbb;
     text-align: left;
     text-indent: 16px;
+    float: left;
   }
   .flip-card-back p {
     font-family: "Comic Sans MS", boold, sans-serif;
@@ -112,5 +120,6 @@ export default {
     text-indent: 16px;
     word-break: break-word;
     font-style: italic;
+    float: left;
   }
 </style>
