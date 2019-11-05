@@ -12,7 +12,7 @@
             </div>
 
             <div class="flip-card-back">
-              <button @click='getProfile(post.profile_id)'>@{{ post.profile }}</button>
+              <button @click='getProfile(post.profile["id"])'>@{{ post.profile['username'] }}</button>
               <p>{{ post.description }}</p>
               <h6>{{ post.created }}</h6>
             </div>
